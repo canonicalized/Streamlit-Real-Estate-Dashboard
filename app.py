@@ -32,3 +32,5 @@ with col2:
     st.line_chart(df)
 
 st.dataframe(df)
+
+st.markdown("Bye bye")
