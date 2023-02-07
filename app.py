@@ -60,7 +60,7 @@ for i, option in enumerate(options):
     color = "white" if i == selected_index else "black"
     btn_class = "selected" if i == selected_index else ""
 
-    if st.button(option, key=i, button_style="".join(["option-button ", btn_class]),
+    if st.button(option, key=i, className="".join(["option-button ", btn_class]),
                  width=None):
         selected_index = i
 
