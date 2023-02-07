@@ -24,6 +24,34 @@ st.header("Real Estate Dashboard")
 location_filter = st.sidebar.selectbox("Location", ["All", "New York", "Los Angeles", "Chicago"])
 price_filter = st.sidebar.slider("Price Range", min_value=0, max_value=1000000, value=(0, 1000000))
 
+
+
+############# buttons
+
+# Define the options
+options = ["Option 1", "Option 2", "Option 3"]
+
+# Initialize the state variable to keep track of the selected option
+selected_index = 0
+
+# Create buttons for each option
+for i, option in enumerate(options):
+    if i == selected_index:
+        bg_color = "blue"
+        color = "white"
+    else:
+        bg_color = "white"
+        color = "black"
+
+    if st.button(option, key=i, button_color=(bg_color, color)):
+        selected_index = i
+
+# Show the selected option
+st.write("You selected:", options[selected_index])
+
+############# end buttons
+
+
 # Create a map on the left and a line chart on the right in the top row
 col1, col2 = st.columns(2)
 with col1:
