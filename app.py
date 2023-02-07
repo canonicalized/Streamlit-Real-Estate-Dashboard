@@ -34,18 +34,35 @@ options = ["Option 1", "Option 2", "Option 3"]
 # Initialize the state variable to keep track of the selected option
 selected_index = 0
 
+st.write("""
+<style>
+    .option-button {{
+        background-color: white;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+    }}
+    .selected {{
+        background-color: blue;
+        color: white;
+    }}
+</style>
+""", unsafe_allow_html=True)
+
 # Create buttons for each option
 for i, option in enumerate(options):
-    if i == selected_index:
-        bg_color = "blue"
-        color = "white"
-    else:
-        bg_color = "white"
-        color = "black"
+    bg_color = "blue" if i == selected_index else "white"
+    color = "white" if i == selected_index else "black"
+    btn_class = "selected" if i == selected_index else ""
 
-    if st.button(option, key=i):
+    if st.button(option, key=i, button_style="".join(["option-button ", btn_class]),
+                 width=None):
         selected_index = i
-        st.write("<style>button:nth-of-type({}) {{background-color: {}; color: {};}}</style>".format(i+1, bg_color, color), unsafe_allow_html=True)
 
 # Show the selected option
 st.write("You selected:", options[selected_index])
