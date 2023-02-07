@@ -43,8 +43,9 @@ for i, option in enumerate(options):
         bg_color = "white"
         color = "black"
 
-    if st.button(option, key=i, button_color=(bg_color, color)):
+    if st.button(option, key=i):
         selected_index = i
+        st.write("<style>button:nth-of-type({}) {{background-color: {}; color: {};}}</style>".format(i+1, bg_color, color), unsafe_allow_html=True)
 
 # Show the selected option
 st.write("You selected:", options[selected_index])
