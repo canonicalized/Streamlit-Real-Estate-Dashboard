@@ -56,13 +56,13 @@ st.write("""
 
 # Create buttons for each option
 for i, option in enumerate(options):
-    bg_color = "blue" if i == selected_index else "white"
-    color = "white" if i == selected_index else "black"
-    btn_class = "selected" if i == selected_index else ""
+    btn_class = "selected" if i == selected_index else "option-button"
 
-    if st.button(option, key=i, className="".join(["option-button ", btn_class]),
-                 width=None):
+    if st.button("", key=i):
         selected_index = i
+        st.write(f"<button class='{btn_class}'>{option}</button>")
+    else:
+        st.write(f"<button class='{btn_class}'>{option}</button>")
 
 # Show the selected option
 st.write("You selected:", options[selected_index])
